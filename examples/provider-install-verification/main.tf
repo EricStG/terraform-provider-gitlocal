@@ -7,7 +7,7 @@ terraform {
 }
 
 provider "gitlocal" {
-    path = "../../"
+  path = "../../"
 }
 
 data "gitlocal_remotes" "example" {}
