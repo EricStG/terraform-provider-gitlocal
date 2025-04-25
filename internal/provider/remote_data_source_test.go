@@ -16,7 +16,7 @@ func TestRemoteDataSource(t *testing.T) {
 					resource.TestCheckResourceAttr("data.gitlocal_remote.test", "name", "origin"),
 
 					resource.TestCheckResourceAttr("data.gitlocal_remote.test", "urls.#", "1"),
-					resource.TestCheckResourceAttr("data.gitlocal_remote.test", "urls.0", "https://github.com/EricStG/terraform-provider-git-local.git"),
+					resource.TestCheckResourceAttr("data.gitlocal_remote.test", "urls.0", "https://github.com/EricStG/terraform-provider-gitlocal"),
 				),
 			},
 		},
