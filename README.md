@@ -1,6 +1,9 @@
 # git-local
 
-This is a Terraform provider that implements data sources to get information about a local git repository
+Terraform provider that implements data sources to get information about a local git repository, using [go-git](https://github.com/go-git/go-git).
+
+> [!WARNING]  
+> This should be considered experimental, use at your own risks.
 
 ## Requirements
 
