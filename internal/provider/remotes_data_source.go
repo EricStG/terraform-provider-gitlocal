@@ -34,20 +34,18 @@ type remotesDataSourceModel struct {
 	Remotes []remotesModel `tfsdk:"remotes"`
 }
 
-// coffeesModel maps coffees schema data.
+// remotesModel maps coffees schema data.
 type remotesModel struct {
 	Name types.String   `tfsdk:"name"`
 	Urls []types.String `tfsdk:"urls"`
 }
 
-// coffeesIngredientsModel maps coffee ingredients data
 // Metadata returns the data source type name.
 func (d *remotesDataSource) Metadata(_ context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
 	resp.TypeName = req.ProviderTypeName + "_remotes"
 }
 
 // Schema defines the schema for the data source.
-// todo: figure out how to share schema
 func (d *remotesDataSource) Schema(_ context.Context, _ datasource.SchemaRequest, resp *datasource.SchemaResponse) {
 	resp.Schema = schema.Schema{
 		Attributes: map[string]schema.Attribute{
@@ -65,6 +63,7 @@ func (d *remotesDataSource) Schema(_ context.Context, _ datasource.SchemaRequest
 // Read refreshes the Terraform state with the latest data.
 func (d *remotesDataSource) Read(ctx context.Context, req datasource.ReadRequest, resp *datasource.ReadResponse) {
 	var state remotesDataSourceModel
+	resp.Diagnostics.Append(req.Config.Get(ctx, &state)...)
 
 	remotes, err := d.repo.Remotes()
 	if err != nil {

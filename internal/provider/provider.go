@@ -117,6 +117,7 @@ func (p *gitlocalProvider) Configure(ctx context.Context, req provider.Configure
 
 func (p *gitlocalProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
 	return []func() datasource.DataSource{
+		NewHeadDataSource,
 		NewRemoteDataSource,
 		NewRemotesDataSource,
 	}
