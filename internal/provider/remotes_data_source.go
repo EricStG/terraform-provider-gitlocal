@@ -55,17 +55,7 @@ func (d *remotesDataSource) Schema(_ context.Context, _ datasource.SchemaRequest
 				Computed:    true,
 				Description: "List of remotes in the repository",
 				NestedObject: schema.NestedAttributeObject{
-					Attributes: map[string]schema.Attribute{
-						"name": schema.StringAttribute{
-							Computed:    true,
-							Description: "Name of the remote",
-						},
-						"urls": schema.ListAttribute{
-							Computed:    true,
-							Description: "List of remote URLs",
-							ElementType: types.StringType,
-						},
-					},
+					Attributes: RemoteSchema(false),
 				},
 			},
 		},

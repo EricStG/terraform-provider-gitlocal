@@ -45,17 +45,7 @@ func (d *remoteDataSource) Metadata(_ context.Context, req datasource.MetadataRe
 // todo: figure out how to share schema
 func (d *remoteDataSource) Schema(_ context.Context, _ datasource.SchemaRequest, resp *datasource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		Attributes: map[string]schema.Attribute{
-			"name": schema.StringAttribute{
-				Description: "Name of the remote",
-				Required:    true,
-			},
-			"urls": schema.ListAttribute{
-				Computed:    true,
-				Description: "List of remote URLs",
-				ElementType: types.StringType,
-			},
-		},
+		Attributes: RemoteSchema(true),
 	}
 }
 
