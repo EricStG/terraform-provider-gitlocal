@@ -20,7 +20,6 @@ data "gitlocal_remote" "example" {
   name = "origin"
 }
 
-
 output "git_remote" {
   value = data.gitlocal_remote.example
 }

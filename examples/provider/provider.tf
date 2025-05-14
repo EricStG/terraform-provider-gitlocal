@@ -1,3 +1,4 @@
-provider "scaffolding" {
-  # example configuration here
+# Opens a local git repository
+provider "gitlocal" {
+  path = "/path/to/repo"
 }
